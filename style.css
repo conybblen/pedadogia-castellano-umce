@@ -13,52 +13,47 @@ header {
 
 #malla-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   overflow-x: auto;
+  gap: 16px;
+  padding-bottom: 20px;
 }
 
-.year-column {
-  border: 1px solid #a8c9e6;
-  border-radius: 6px;
-  margin: 0 8px;
+.semester-column {
   background-color: #e8f1fa;
-  width: 220px;
-  min-width: 220px;
-  padding-bottom: 15px;
+  border: 1px solid #a8c9e6;
+  border-radius: 8px;
+  min-width: 180px;
+  padding: 10px 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.year-header {
-  background-color: #b0d4f1;
-  color: #003366;
+.semester-header {
   font-weight: 700;
+  font-size: 18px;
   padding: 8px 0;
-  border-radius: 6px 6px 0 0;
+  color: #004080;
+  border-bottom: 1px solid #a8c9e6;
   width: 100%;
   text-align: center;
-  font-size: 18px;
-}
-
-.semester-label {
-  margin-top: 10px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #004080;
+  margin-bottom: 12px;
 }
 
 .subject {
   background-color: #d2e4f7;
   border: 1px solid #9cc1ea;
-  margin: 6px 12px;
-  padding: 12px 10px;
-  border-radius: 5px;
+  border-radius: 6px;
+  margin: 6px 0;
+  padding: 10px 6px;
   font-size: 14px;
   text-align: center;
   cursor: pointer;
   user-select: none;
   transition: background-color 0.3s, color 0.3s;
+  width: 90%;
+  position: relative;
 }
 
 .subject.completed {
@@ -85,3 +80,22 @@ header {
   font-weight: 600;
   margin-top: 4px;
 }
+
+/* Tooltip para mostrar prerequisitos al pasar el mouse */
+.subject[data-prereq]:hover::after {
+  content: attr(data-prereq);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #004080;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 11px;
+  margin-top: 4px;
+  pointer-events: none;
+  z-index: 10;
+}
+
