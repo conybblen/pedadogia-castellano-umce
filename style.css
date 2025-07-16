@@ -1,0 +1,87 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f9fc;
+  color: #003366;
+  margin: 20px;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#malla-container {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.year-column {
+  border: 1px solid #a8c9e6;
+  border-radius: 6px;
+  margin: 0 8px;
+  background-color: #e8f1fa;
+  width: 220px;
+  min-width: 220px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.year-header {
+  background-color: #b0d4f1;
+  color: #003366;
+  font-weight: 700;
+  padding: 8px 0;
+  border-radius: 6px 6px 0 0;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+
+.semester-label {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #004080;
+}
+
+.subject {
+  background-color: #d2e4f7;
+  border: 1px solid #9cc1ea;
+  margin: 6px 12px;
+  padding: 12px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.subject.completed {
+  background-color: #7abaff;
+  color: white;
+  text-decoration: line-through;
+  cursor: default;
+}
+
+.subject.locked {
+  background-color: #c5d6e7;
+  color: #7a8ba6;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.subject:hover:not(.locked):not(.completed) {
+  background-color: #a4c7ff;
+}
+
+.sct-label {
+  font-size: 11px;
+  color: #003366;
+  font-weight: 600;
+  margin-top: 4px;
+}
