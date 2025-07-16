@@ -1,132 +1,123 @@
-const semestres = [
-  {
-    numero: 1,
-    materias: [
-      { nombre: "Introducción a Estudios I", sct: 3, prerequisitos: [] },
-      { nombre: "Panorama Histórico I", sct: 3, prerequisitos: [] },
-      { nombre: "Comunicación Escrita I", sct: 3, prerequisitos: [] },
-      { nombre: "Fundamentos de la Educación", sct: 4, prerequisitos: [] },
-      { nombre: "Psicología General", sct: 4, prerequisitos: [] },
-      { nombre: "Metodología de la Investigación", sct: 3, prerequisitos: [] },
-    ],
-  },
-  {
-    numero: 2,
-    materias: [
-      { nombre: "Introducción a Estudios II", sct: 3, prerequisitos: ["Introducción a Estudios I"] },
-      { nombre: "Panorama Histórico II", sct: 3, prerequisitos: ["Panorama Histórico I"] },
-      { nombre: "Comunicación Escrita II", sct: 3, prerequisitos: ["Comunicación Escrita I"] },
-      { nombre: "Didáctica General", sct: 4, prerequisitos: ["Fundamentos de la Educación"] },
-      { nombre: "Psicología del Desarrollo", sct: 4, prerequisitos: ["Psicología General"] },
-      { nombre: "Estadística Aplicada", sct: 3, prerequisitos: ["Metodología de la Investigación"] },
-    ],
-  },
-  {
-    numero: 3,
-    materias: [
-      { nombre: "Introducción a Estudios III", sct: 3, prerequisitos: ["Introducción a Estudios II"] },
-      { nombre: "Panorama Histórico III", sct: 3, prerequisitos: ["Panorama Histórico II"] },
-      { nombre: "Comunicación Escrita III", sct: 3, prerequisitos: ["Comunicación Escrita II"] },
-      { nombre: "Didáctica de la Lengua", sct: 4, prerequisitos: ["Didáctica General"] },
-      { nombre: "Psicología Educacional", sct: 4, prerequisitos: ["Psicología del Desarrollo"] },
-      { nombre: "Diseño de Investigación", sct: 3, prerequisitos: ["Estadística Aplicada"] },
-    ],
-  },
-  {
-    numero: 4,
-    materias: [
-      { nombre: "Literatura I", sct: 4, prerequisitos: ["Comunicación Escrita III"] },
-      { nombre: "Lingüística I", sct: 4, prerequisitos: ["Comunicación Escrita III"] },
-      { nombre: "Didáctica de la Literatura", sct: 4, prerequisitos: ["Didáctica de la Lengua"] },
-      { nombre: "Evaluación Educativa", sct: 4, prerequisitos: ["Diseño de Investigación"] },
-      { nombre: "Práctica Profesional I", sct: 5, prerequisitos: ["Didáctica General"] },
-    ],
-  },
-  {
-    numero: 5,
-    materias: [
-      { nombre: "Literatura II", sct: 4, prerequisitos: ["Literatura I"] },
-      { nombre: "Lingüística II", sct: 4, prerequisitos: ["Lingüística I"] },
-      { nombre: "Didáctica del Castellano", sct: 4, prerequisitos: ["Didáctica de la Lengua"] },
-      { nombre: "Práctica Profesional II", sct: 5, prerequisitos: ["Práctica Profesional I"] },
-    ],
-  },
-  {
-    numero: 6,
-    materias: [
-      { nombre: "Seminario de Investigación Educativa", sct: 4, prerequisitos: ["Diseño de Investigación"] },
-      { nombre: "Taller de Titulación", sct: 5, prerequisitos: ["Práctica Profesional II"] },
-      { nombre: "Seminario de Literatura", sct: 4, prerequisitos: ["Literatura II"] },
-      { nombre: "Lingüística Aplicada", sct: 4, prerequisitos: ["Lingüística II"] },
-    ],
-  },
-];
+const mallaData = {
+  "1° Año - I Semestre": [
+    { nombre: "Introducción a los Estudios Literarios I", sct: 5 },
+    { nombre: "Panorama Histórico-Literario I", sct: 6 },
+    { nombre: "Contextos Socioculturales de los Procesos Educativos", sct: 4 },
+    { nombre: "Comunicación Escrita I", sct: 6 },
+    { nombre: "Lingüística General", sct: 5 },
+  ],
+  "1° Año - II Semestre": [
+    { nombre: "Introducción a los Estudios Literarios II", sct: 6, prerequisitos: ["Introducción a los Estudios Literarios I"] },
+    { nombre: "Panorama Histórico-Literario II", sct: 6, prerequisitos: ["Panorama Histórico-Literario I"] },
+    { nombre: "Psicología del Aprendizaje", sct: 4 },
+    { nombre: "Latín", sct: 5 },
+    { nombre: "Comunicación Escrita II", sct: 7, prerequisitos: ["Comunicación Escrita I"] },
+    { nombre: "Fonética y Fonología del Español", sct: 6 },
+  ],
+  "2° Año - III Semestre": [
+    { nombre: "Temas y Tópicos Literarios I", sct: 4 },
+    { nombre: "Géneros Literarios I", sct: 4 },
+    { nombre: "Gramática del Español I", sct: 4 },
+    { nombre: "Comunicación Escrita III", sct: 5 },
+    { nombre: "Historia de la Lengua Española I", sct: 4 },
+    { nombre: "Segundo Idioma I", sct: 4 },
+  ],
+  "2° Año - IV Semestre": [
+    { nombre: "Temas y Tópicos Literarios II", sct: 4 },
+    { nombre: "Géneros Literarios II", sct: 6 },
+    { nombre: "Gramática del Español II", sct: 4 },
+    { nombre: "Comunicación Oral", sct: 5 },
+    { nombre: "Historia de la Lengua Española II", sct: 4 },
+    { nombre: "Currículum Educacional", sct: 4 },
+    { nombre: "Segundo Idioma II", sct: 4 },
+  ],
+  "3° Año - V Semestre": [
+    { nombre: "Temas y Tópicos Literarios III", sct: 4 },
+    { nombre: "Literatura y Sociedad I", sct: 6 },
+    { nombre: "Gramática del Español III", sct: 4 },
+    { nombre: "Evaluación Educacional", sct: 4 },
+    { nombre: "Segundo Idioma III", sct: 4 },
+  ],
+  "3° Año - VI Semestre": [
+    { nombre: "Temas y Tópicos Literarios IV", sct: 6 },
+    { nombre: "Literatura y Sociedad II", sct: 4 },
+    { nombre: "Investigación Educacional", sct: 4 },
+    { nombre: "Español de América", sct: 5 },
+    { nombre: "Complementario de la Especialidad", sct: 4 },
+  ],
+  "4° Año - VII Semestre": [
+    { nombre: "Comprensión y Producción de Textos", sct: 4 },
+    { nombre: "Literatura y Estudios Transatlánticos", sct: 4 },
+    { nombre: "Didáctica de la Lengua y la Literatura I", sct: 6 },
+    { nombre: "Expresión Teatral", sct: 4 },
+    { nombre: "Orientación y Convivencia Educativa", sct: 4 },
+    { nombre: "Seminario de Lingüística y Comunicación", sct: 4 },
+    { nombre: "Tipología Textual", sct: 5 },
+  ],
+  "4° Año - VIII Semestre": [
+    { nombre: "Literatura y Estudios Comparados", sct: 5 },
+    { nombre: "Didáctica de la Lengua y la Literatura II", sct: 6 },
+    { nombre: "Análisis del Discurso", sct: 5 },
+  ],
+  "5° Año - IX Semestre": [
+    { nombre: "Seminario o Proyecto de Memoria de Título", sct: 10 },
+    { nombre: "Fortalecimiento de Competencias de Egreso", sct: 4 },
+  ],
+  "5° Año - X Semestre": [
+    { nombre: "Seminario o Proyecto de Memoria de Título", sct: 22 },
+  ],
+};
 
 const aprobados = new Set();
 
-function estaAprobado(nombre) {
-  return aprobados.has(nombre);
+function tienePrerrequisitos(ramo, aprobados) {
+  if (!ramo.prerequisitos) return true;
+  return ramo.prerequisitos.every(pr => aprobados.has(pr));
 }
 
-function puedeHabilitar(materia) {
-  return materia.prerequisitos.every(prereq => aprobados.has(prereq));
-}
+function crearMalla() {
+  const container = document.getElementById("malla-container");
+  container.innerHTML = "";
 
-function toggleAprobado(nombre) {
-  if (aprobados.has(nombre)) {
-    aprobados.delete(nombre);
-  } else {
-    aprobados.add(nombre);
+  for (const [semestre, ramos] of Object.entries(mallaData)) {
+    const semestreDiv = document.createElement("div");
+    semestreDiv.className = "semestre";
+    const title = document.createElement("h2");
+    title.textContent = semestre;
+    semestreDiv.appendChild(title);
+
+    for (const ramo of ramos) {
+      const ramoDiv = document.createElement("div");
+      ramoDiv.className = "ramo";
+
+      const aprobado = aprobados.has(ramo.nombre);
+      const habilitado = tienePrerrequisitos(ramo, aprobados);
+
+      ramoDiv.classList.toggle("aprobado", aprobado);
+      ramoDiv.classList.toggle("bloqueado", !habilitado && !aprobado);
+
+      ramoDiv.innerHTML = `
+        <span>${ramo.nombre}</span>
+        <span class="sct">${ramo.sct} SCT</span>
+      `;
+
+      if (habilitado) {
+        ramoDiv.addEventListener("click", () => {
+          if (aprobados.has(ramo.nombre)) {
+            aprobados.delete(ramo.nombre);
+          } else {
+            aprobados.add(ramo.nombre);
+          }
+          crearMalla();
+        });
+      }
+
+      semestreDiv.appendChild(ramoDiv);
+    }
+
+    container.appendChild(semestreDiv);
   }
-  renderMalla();
 }
 
-function renderMalla() {
-  const contenedor = document.getElementById("malla-container");
-  contenedor.innerHTML = "";
+crearMalla();
 
-  semestres.forEach(sem => {
-    const divSemestre = document.createElement("div");
-    divSemestre.className = "semestre";
-
-    const titulo = document.createElement("h2");
-    titulo.textContent = `Semestre ${sem.numero}`;
-    divSemestre.appendChild(titulo);
-
-    sem.materias.forEach(materia => {
-      const aprobado = estaAprobado(materia.nombre);
-      const habilitado = puedeHabilitar(materia) || aprobado;
-
-      const divRamo = document.createElement("div");
-      divRamo.className = "ramo";
-      if (aprobado) divRamo.classList.add("aprobado");
-      else if (!habilitado) divRamo.classList.add("bloqueado");
-
-      divRamo.textContent = materia.nombre;
-
-      // SCT en span aparte a la derecha
-      const spanSCT = document.createElement("span");
-      spanSCT.className = "sct";
-      spanSCT.textContent = `${materia.sct} SCT`;
-      divRamo.appendChild(spanSCT);
-
-      // Tooltip con prerequisitos
-      if (materia.prerequisitos.length > 0) {
-        divRamo.classList.add("tooltip");
-        divRamo.setAttribute("data-tooltip", "Prerrequisitos: " + materia.prerequisitos.join(", "));
-      }
-
-      if (!habilitado) {
-        divRamo.onclick = null;
-      } else {
-        divRamo.onclick = () => toggleAprobado(materia.nombre);
-      }
-
-      contenedor.appendChild(divSemestre);
-      divSemestre.appendChild(divRamo);
-    });
-  });
-}
-
-// Inicializamos
-renderMalla();
