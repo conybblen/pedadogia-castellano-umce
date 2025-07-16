@@ -1,84 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&display=swap');
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f5faf7;
-  color: #2b4d31;
+  font-family: 'Montserrat', sans-serif;
+  background: #f0f8f5;
+  color: #2a4d3b;
   margin: 20px;
+  line-height: 1.4;
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 30px;
   font-weight: 700;
-  color: #3b6b41;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #1f3928;
 }
 
-#malla-container {
-  display: flex;
-  gap: 28px;
-  justify-content: center;
-  flex-wrap: wrap;
+.ano {
+  margin-bottom: 40px;
+}
+
+.ano h2 {
+  font-weight: 700;
+  font-size: 1.8em;
+  border-bottom: 2px solid #a6d8b7;
+  padding-bottom: 5px;
+  margin-bottom: 25px;
 }
 
 .semestre {
-  background: #d7e9d7;
-  padding: 15px 20px;
-  border-radius: 12px;
-  min-width: 230px;
-  box-shadow: 0 4px 8px rgba(43, 77, 49, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
-.semestre h2 {
+.semestre h3 {
+  width: 100%;
   font-weight: 700;
-  font-size: 1.22rem;
+  font-size: 1.4em;
+  border-bottom: 1px dotted #7bbf92;
   margin-bottom: 15px;
-  border-bottom: 3px solid #7eb977;
-  padding-bottom: 8px;
-  color: #2b4d31;
+  color: #3b6d4a;
 }
 
 .ramo {
-  background: #e5f1e3;
-  margin-bottom: 12px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  cursor: pointer;
+  background-color: #d9f0e3;
+  border: 2px solid #7bbf92;
+  border-radius: 10px;
+  padding: 10px 15px;
+  width: 300px;
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  transition: background-color 0.25s ease;
-  box-shadow: inset 0 0 5px #a9d5a9;
+  gap: 10px;
 }
 
-.ramo:hover:not(.bloqueado) {
-  background-color: #b8dbb9;
+.ramo input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
-.ramo.aprobado {
-  background-color: #9cd18a;
-  color: #20401d;
-  font-weight: 700;
-  box-shadow: 0 0 8px #679a3f;
-}
-
-.ramo.bloqueado {
-  background-color: #c9d9c6;
-  color: #7b8d76;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.ramo .nombre {
+.ramo label {
+  cursor: pointer;
+  flex: 1;
   font-weight: 400;
-  font-size: 0.95rem;
+  font-size: 1em;
+  color: #2a4d3b;
 }
 
-.ramo .creditos {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.85rem;
-  color: #4b6a39;
-  font-weight: 600;
-  min-width: 60px;
-  text-align: right;
+.ramo label:hover {
+  color: #1f3928;
+}
+
+.creditos {
+  font-family: 'Roboto Mono', monospace;
+  background-color: #a6d8b7;
+  color: #1f3928;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9em;
+  margin-left: 10px;
+  user-select: none;
 }
 
 
