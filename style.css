@@ -1,111 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&family=Roboto+Slab&display=swap');
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f9fc;
-  color: #003366;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f9fbfc;
   margin: 20px;
-  padding: 0;
+  color: #222;
 }
 
-header {
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   text-align: center;
   margin-bottom: 30px;
-  font-weight: 700;
-  font-size: 28px;
-  color: #002244;
+  color: #264653;
 }
 
 #malla-container {
   display: flex;
-  justify-content: flex-start;
-  overflow-x: auto;
   gap: 20px;
-  padding-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.semester-column {
-  background-color: #e8f1fa;
-  border: 1px solid #a8c9e6;
-  border-radius: 8px;
-  min-width: 190px;
-  padding: 15px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.semestre {
+  background: #e8f0fe;
+  border-radius: 10px;
+  padding: 15px 20px;
+  min-width: 220px;
+  box-shadow: 0 2px 8px rgba(38, 70, 83, 0.15);
 }
 
-.semester-header {
+.semestre h2 {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 18px;
-  padding-bottom: 10px;
-  color: #004080;
-  border-bottom: 2px solid #a8c9e6;
-  width: 100%;
-  text-align: center;
-  margin-bottom: 16px;
-  letter-spacing: 1px;
-  user-select: none;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #2a9d8f;
+  border-bottom: 2px solid #2a9d8f;
+  padding-bottom: 5px;
 }
 
-.subject {
-  background-color: #d2e4f7;
-  border: 1px solid #9cc1ea;
-  border-radius: 6px;
-  margin: 8px 0;
-  padding: 10px 8px;
-  font-size: 14px;
-  text-align: left;
+.ramo {
   cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background-color: #d0e8f2;
+  color: #1a374d;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   user-select: none;
   transition: background-color 0.3s, color 0.3s;
-  width: 100%;
-  position: relative;
-  font-weight: 400;
-  color: #003366;
+  border: 1px solid transparent;
 }
 
-.subject.completed {
-  background-color: #7abaff;
-  color: white;
+.ramo:hover:not(.bloqueado):not(.aprobado) {
+  background-color: #a6c8dd;
+}
+
+.ramo.aprobado {
+  background-color: #264653;
+  color: #f0f3f5;
   text-decoration: line-through;
-  cursor: default;
+  border-color: #1b3a4b;
 }
 
-.subject.locked {
-  background-color: #c5d6e7;
-  color: #7a8ba6;
+.ramo.bloqueado {
+  background-color: #b0bec5;
+  color: #607d8b;
   cursor: not-allowed;
   text-decoration: none;
 }
 
-.subject:hover:not(.locked):not(.completed) {
-  background-color: #a4c7ff;
-}
-
-.sct-label {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 12px;
-  color: #004080cc;
+.sct {
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.8rem;
+  color: #51707a;
+  margin-left: 10px;
   font-style: italic;
-  font-weight: 500;
-  margin-top: 6px;
-  text-align: right;
 }
 
-/* Tooltip para mostrar prerrequisitos al pasar el mouse */
-.subject[data-prereq]:hover::after {
-  content: attr(data-prereq);
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip:hover::after {
+  content: attr(data-tooltip);
   position: absolute;
-  top: 100%;
+  bottom: 120%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #004080;
+  background-color: #264653;
   color: #fff;
-  padding: 5px 10px;
-  border-radius: 4px;
+  padding: 6px 8px;
+  border-radius: 6px;
   white-space: nowrap;
-  font-size: 12px;
-  margin-top: 6px;
-  pointer-events: none;
+  font-size: 0.75rem;
   z-index: 10;
+  opacity: 0.9;
 }
 
