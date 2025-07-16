@@ -1,20 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&family=Roboto+Slab&display=swap');
-
+/* General */
 body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f9fbfc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f9ff;
   margin: 20px;
-  color: #222;
+  color: #254060;
 }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
   text-align: center;
+  font-weight: 700;
   margin-bottom: 30px;
-  color: #264653;
+  color: #1c3d5a;
 }
 
+/* Container for all semesters */
 #malla-container {
   display: flex;
   gap: 20px;
@@ -22,84 +21,96 @@ h1 {
   justify-content: center;
 }
 
+/* Each semester box */
 .semestre {
   background: #e8f0fe;
   border-radius: 10px;
   padding: 15px 20px;
   min-width: 220px;
   box-shadow: 0 2px 8px rgba(38, 70, 83, 0.15);
-}
 
-.semestre h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  color: #2a9d8f;
-  border-bottom: 2px solid #2a9d8f;
-  padding-bottom: 5px;
-}
-
-.ramo {
-  cursor: pointer;
-  padding: 8px 12px;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  background-color: #d0e8f2;
-  color: #1a374d;
-  font-size: 0.9rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* important for vertical stacking */
+}
+
+/* Semester title */
+.semestre h2 {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #14375e;
+  border-bottom: 2px solid #bfd7ff;
+  padding-bottom: 6px;
+}
+
+/* Each course box */
+.ramo {
+  background: #d4e3fc;
+  border-radius: 7px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+
+  cursor: pointer;
   user-select: none;
-  transition: background-color 0.3s, color 0.3s;
-  border: 1px solid transparent;
+
+  box-shadow: 0 1px 5px rgba(29, 53, 87, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease;
 }
 
-.ramo:hover:not(.bloqueado):not(.aprobado) {
-  background-color: #a6c8dd;
+/* Course name */
+.ramo .nombre {
+  font-weight: 400;
+  font-size: 14px;
+  color: #1f3c70;
 }
 
-.ramo.aprobado {
-  background-color: #264653;
-  color: #f0f3f5;
-  text-decoration: line-through;
-  border-color: #1b3a4b;
-}
-
-.ramo.bloqueado {
-  background-color: #b0bec5;
-  color: #607d8b;
-  cursor: not-allowed;
-  text-decoration: none;
-}
-
-.sct {
-  font-family: 'Roboto Slab', serif;
-  font-size: 0.8rem;
-  color: #51707a;
-  margin-left: 10px;
+/* Credits in smaller italic */
+.ramo .creditos {
+  font-size: 12px;
   font-style: italic;
+  color: #668bb1;
+  margin-top: 3px;
 }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
+/* Approved courses */
+.aprobado {
+  background-color: #a2b9f3;
+  color: #ffffff;
+  text-decoration: line-through;
+  box-shadow: 0 0 8px #5368aa;
 }
 
-.tooltip:hover::after {
-  content: attr(data-tooltip);
+/* Locked courses with prerequisites not met */
+.bloqueado {
+  background-color: #b8c7db;
+  color: #6b7582;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* Hover effect only for available courses */
+.ramo:not(.bloqueado):hover {
+  background-color: #c7d7fd;
+}
+
+/* Tooltip style (title attribute) */
+.ramo[title]:hover::after {
+  content: attr(title);
   position: absolute;
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #264653;
+  background: #254060;
   color: #fff;
-  padding: 6px 8px;
-  border-radius: 6px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 12px;
   white-space: nowrap;
-  font-size: 0.75rem;
-  z-index: 10;
+  top: -28px;
+  left: 0;
   opacity: 0.9;
+  pointer-events: none;
+  z-index: 10;
 }
+
 
