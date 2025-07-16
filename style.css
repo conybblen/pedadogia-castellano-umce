@@ -1,116 +1,124 @@
 /* General */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap');
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f5f9ff;
+  font-family: 'Poppins', sans-serif;
+  background: #f0f4fb;
   margin: 20px;
-  color: #254060;
+  color: #2a3d66;
 }
 
 h1 {
   text-align: center;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 2.2rem;
   margin-bottom: 30px;
-  color: #1c3d5a;
+  color: #1f2f56;
 }
 
 /* Container for all semesters */
 #malla-container {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 /* Each semester box */
 .semestre {
-  background: #e8f0fe;
-  border-radius: 10px;
-  padding: 15px 20px;
-  min-width: 220px;
-  box-shadow: 0 2px 8px rgba(38, 70, 83, 0.15);
+  background: #d6e3fb;
+  border-radius: 12px;
+  padding: 20px 25px;
+  min-width: 230px;
+  box-shadow: 0 4px 12px rgba(60, 85, 150, 0.15);
 
   display: flex;
-  flex-direction: column; /* important for vertical stacking */
+  flex-direction: column; /* vertical stacking */
 }
 
 /* Semester title */
 .semestre h2 {
-  font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #14375e;
-  border-bottom: 2px solid #bfd7ff;
-  padding-bottom: 6px;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 18px;
+  color: #264370;
+  border-bottom: 2px solid #aec6fb;
+  padding-bottom: 8px;
 }
 
 /* Each course box */
 .ramo {
-  background: #d4e3fc;
-  border-radius: 7px;
-  padding: 10px 15px;
-  margin-bottom: 10px;
+  background: #e8f0fe;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
 
   cursor: pointer;
   user-select: none;
 
-  box-shadow: 0 1px 5px rgba(29, 53, 87, 0.1);
+  box-shadow: 0 2px 8px rgba(38, 70, 130, 0.1);
 
   display: flex;
   flex-direction: column;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 /* Course name */
 .ramo .nombre {
   font-weight: 400;
-  font-size: 14px;
-  color: #1f3c70;
+  font-size: 15px;
+  color: #2a3d66;
 }
 
-/* Credits in smaller italic */
+/* Credits in smaller italic Roboto */
 .ramo .creditos {
+  font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-style: italic;
-  color: #668bb1;
-  margin-top: 3px;
+  color: #6783b9;
+  margin-top: 4px;
 }
 
 /* Approved courses */
 .aprobado {
-  background-color: #a2b9f3;
-  color: #ffffff;
+  background-color: #7c98e1;
+  color: #f2f7ff;
   text-decoration: line-through;
-  box-shadow: 0 0 8px #5368aa;
+  box-shadow: 0 0 10px #5372c6;
 }
 
 /* Locked courses with prerequisites not met */
 .bloqueado {
-  background-color: #b8c7db;
-  color: #6b7582;
+  background-color: #a9b7d9;
+  color: #50607a;
   cursor: not-allowed;
   text-decoration: line-through;
 }
 
 /* Hover effect only for available courses */
 .ramo:not(.bloqueado):hover {
-  background-color: #c7d7fd;
+  background-color: #c4d3fb;
+  box-shadow: 0 0 10px rgba(70, 105, 180, 0.35);
 }
 
 /* Tooltip style (title attribute) */
 .ramo[title]:hover::after {
   content: attr(title);
   position: absolute;
-  background: #254060;
+  background: #264370;
   color: #fff;
-  padding: 5px 8px;
-  border-radius: 4px;
+  padding: 6px 10px;
+  border-radius: 6px;
   font-size: 12px;
   white-space: nowrap;
-  top: -28px;
+  top: -36px;
   left: 0;
-  opacity: 0.9;
+  opacity: 0.95;
   pointer-events: none;
   z-index: 10;
+  box-shadow: 0 0 6px rgba(38, 70, 130, 0.6);
 }
+
 
 
